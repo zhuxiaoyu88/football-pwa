@@ -18,14 +18,14 @@ function error(error) {
 
 function getKlasemen() {
   if ('caches' in window) {
-    caches.match(base_url + "articles", {
+    caches.match(base_url + "/competitions/2021/standings", {
         headers: {
           'X-Auth-Token': 'd65bd9acab7247039bd9862ed5bec0d3'
         }
       })
       .then((response) => {
         if (response) {
-          response.convertToJson()
+          convertToJson(response)
             .then(function(data) {
               let stagesHTML = "";
               stagesHTML = `
@@ -184,6 +184,63 @@ function getDetailTeam() {
   return new Promise(function(resolve, reject) {
     const urlParams = new URLSearchParams(window.location.search);
     const idParam = urlParams.get("id");
+
+    if ('caches' in window) {
+      caches.match(base_url + "/teams/" + idParam, {
+        headers: {
+          'X-Auth-Token': 'd65bd9acab7247039bd9862ed5bec0d3'
+        }
+      })
+      .then((response) => {
+        if (response) {
+          convertToJson(response)
+          .then(function(data) {
+            let textHTML = ''
+            textHTML += `
+                <div class="card card-team">
+                  <div class="row">
+                    <div class="col s4">
+                      <div class="card-image waves-effect waves-block waves-light">
+                        <img
+                          src="${data.crestUrl}"
+                          alt="${data.name} icon"
+                          class="responsive-img"
+                        />
+                      </div>
+                    </div>
+                    <div class="col s8">
+                      <div class="card-team__name">${data.name}</div>
+                      <div class="card-team__address">${data.address}</div>
+                      <div class="card-team__website">${data.website}</div>
+                    </div>
+                  </div>
+                </div>
+              `;
+            textHTML += `
+              <div>Our Team</div>
+              <div class="row">
+            `
+            data.squad.forEach(function(squad) {
+              textHTML += `
+                <div class="col s12 m3">
+                  <div class="card card-team">
+                    <div class="card-team__name">${squad.name}</div>
+                    <div class="card-team__position">${squad.position}</div>
+                    <div class="card-team__nationality">${squad.nationality}</div>
+                  </div>
+                </div>
+              `
+            })
+            textHTML += `
+              </div>
+            `
+            document.getElementById("detail-team-wrap").innerHTML = textHTML;
+            resolve(data);
+          });
+        }
+      })
+    }
+
     fetch(base_url + "/teams/" + idParam, {
           headers: {
             'X-Auth-Token': 'd65bd9acab7247039bd9862ed5bec0d3'
