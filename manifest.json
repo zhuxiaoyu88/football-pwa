@@ -1,0 +1,18 @@
+{
+    "name": "Football",
+    "short_name": "FBM",
+    "description": "Football Match",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#171738",
+    "theme_color": "#171738",
+    "icons": [
+        {
+            "src": "./img/soccer-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "gcm_sender_id": "782151986978"
+}

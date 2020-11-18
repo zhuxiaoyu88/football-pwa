@@ -1,0 +1,129 @@
+@font-face {
+  font-family: 'Cabin';
+  src: url('../fonts/Cabin-Regular.ttf');
+  src: url('../fonts/Cabin-Bold.ttf');
+}
+
+h1, h2, h3, h4, h5, h6, p, html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  box-sizing: border-box;
+  font-family: 'Cabin', sans-serif;
+}
+
+.sidenav-overlay {
+  display: none !important;
+}
+
+.navbar-custom {
+  height: unset;
+  padding-bottom: 64px;
+}
+
+.navbar-custom nav {
+	background-color: #5438dc;
+  padding: 0 45px;
+}
+
+.navbar-custom nav a {
+  font-weight: 600;
+}
+
+.navbar-custom .brand-logo {
+  font-size: 24px;
+}
+
+.banner {
+  height: 75vh;
+}
+
+.banner--home {
+  height: 100vh;
+}
+
+.banner__container {
+  height: 100%;
+}
+
+.banner__item {
+  height: 100%;
+  background-blend-mode:multiply;
+  background-image: linear-gradient(rgba(150, 150, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/banner-home.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.banner__content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: #f9f9f9;
+  padding: 15px;
+}
+
+.banner__content .title {
+  font-size: 58px;
+  font-weight: 600;
+}
+
+.banner__content .description {
+  font-size: 24px;
+  text-align: right;
+}
+
+@media (max-width: 567px) {
+  .banner__content .title {
+    font-size: 36px;
+  }
+
+  .title {
+    font-size: 36px;
+  }
+}
+
+.section-space {
+  padding: 45px 0;
+}
+
+#body-content {
+  min-height: 100vh;
+}
+
+.card-team {
+  padding: 15px;
+  box-shadow: 0 2px 8px 0 #ccc;
+  border-radius: 8px;
+  transition: all .3s ease;
+}
+
+.card-team:hover, .card-team:active, .card-team:focus {
+  box-shadow: 0 2px 4px 0 #bbb;
+}
+
+.card-team__link {
+  display: block;
+}
+
+.card-team__name {
+  font-size: 20px;
+}
+
+.card-team__img {
+  height: 75px !important;
+  width: auto !important;
+  text-align: center;
+}
+
+footer {
+  background-color: #5438dc;
+  color: #ffffff;
+  padding: 15px;
+}

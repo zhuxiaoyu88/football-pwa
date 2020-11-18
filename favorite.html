@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-	<title>Football Match Result</title>
+	<title>My Favorite Team - Football Match Result</title>
   <meta charset="utf-8">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#81D6E3"/>
@@ -21,7 +21,9 @@
       <nav role="navigation">
         <div class="nav-wrapper">
           <a href="./" class="brand-logo" id="logo-container">FBP</a>
-          <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
+          <a href="index.html" class="sidenav-trigger" data-target="nav-mobile">
+            <img src="img/arrow-back.png" class="responsive-img">
+          </a>
           
           <ul class="topnav right hide-on-med-and-down">
             <li>
@@ -42,22 +44,8 @@
     </div>
   </header>
   <main id="body-content">
-    <section class="banner banner--home">
-      <div class="banner__container">
-        <div class="banner__item">
-          <div class="banner__content">
-            <h1 class="title">
-              Football Match
-            </h1>
-            <p class="description">
-              Win or lose, we are still unity.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="section-space">
-      <div class="container" id="all-klasemen">
+      <div class="container" id="favorite-wrap">
       </div>
     </section>
   </main>
@@ -78,8 +66,22 @@
   <script src="js/db.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      getKlasemen();
+      getSavedTeams();
     });
+  </script>
+  <script>
+    function clicked(btnDiscard) {
+      const id = parseInt(btnDiscard.getAttribute('data-id'));
+      console.log(id)
+      const deleteItem = deleteSavedTeam(id);
+      deleteItem
+        .then(function () {
+          M.toast({html: 'Team deleted !'})
+        })
+        .then(function () {
+          getSavedTeams();
+        });
+    }
   </script>
 </body>
 </html>
