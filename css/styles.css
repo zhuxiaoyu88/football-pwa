@@ -14,13 +14,14 @@ html, body {
   font-family: 'Cabin', sans-serif;
 }
 
-.sidenav-overlay {
+/*.sidenav-overlay {
   display: none !important;
-}
+}*/
 
 .navbar-custom {
   height: unset;
   padding-bottom: 64px;
+  z-index: 998;
 }
 
 .navbar-custom nav {

@@ -1,0 +1,22 @@
+{
+  "name": "football-pwa",
+  "version": "1.0.0",
+  "description": "Football with pwa",
+  "main": "push.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhuxiaoyu88/football-pwa.git"
+  },
+  "author": "Zhu Xiao Yu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhuxiaoyu88/football-pwa/issues"
+  },
+  "homepage": "https://github.com/zhuxiaoyu88/football-pwa#readme",
+  "dependencies": {
+    "web-push": "^3.4.4"
+  }
+}

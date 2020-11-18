@@ -1,9 +1,10 @@
-const CACHE_NAME = "football-v01";
+const CACHE_NAME = "football-v02";
 const urlsToCache = [
   "./",
   "./index.html",
   "./detail-team.html",
   "./favorite.html",
+  "./nav.html",
   "./img/favicon.png",
   "./img/apple-touch-icon-ipad-76x76.png",
   "./img/apple-touch-icon-ipad-retina-152x152.png",
@@ -18,6 +19,7 @@ const urlsToCache = [
   "./css/styles.css",
   "./js/materialize.min.js",
   "./js/notif.js",
+  "./js/nav.js",
   "./js/sw-register.js",
   "./js/api.js",
   "./js/idb.js",
@@ -69,5 +71,26 @@ self.addEventListener("activate", (event) => {
         })
       );
     })
+  );
+});
+
+self.addEventListener('push', function(event) {
+  var body;
+  if (event.data) {
+    body = event.data.text();
+  } else {
+    body = 'Push message no payload';
+  }
+  var options = {
+    body: body,
+    icon: 'img/notification.png',
+    vibrate: [100, 50, 100],
+    data: {
+      dateOfArrival: Date.now(),
+      primaryKey: 1
+    }
+  };
+  event.waitUntil(
+    self.registration.showNotification('Push Notification', options)
   );
 });

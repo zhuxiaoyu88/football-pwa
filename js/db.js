@@ -16,7 +16,10 @@ function saveForLater(team) {
     })
     .then(function() {
       M.toast({html: 'Team saved !'})
-    });
+    })
+    .catch(function() {
+      M.toast({html: `Can't save duplicate data !`})
+    })
 }
 
 function getAll() {
