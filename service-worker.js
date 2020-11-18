@@ -22,8 +22,10 @@ const urlsToCache = [
   "./js/api.js",
   "./js/idb.js",
   "./js/db.js",
+  "./push.js",
   "./service-worker.js",
   "./manifest.json",
+  "./push.js"
 ];
  
 self.addEventListener("install", (event) => {

@@ -3,7 +3,6 @@ const dbPromised = idb.open("football", 1, function(upgradeDb) {
     keyPath: "id"
   });
   teamsObjectStore.createIndex("team_name", "team_name", { unique: false });
-  teamsObjectStore.createIndex("team_name", "team_name", { unique: false });
 });
 
 function saveForLater(team) {
