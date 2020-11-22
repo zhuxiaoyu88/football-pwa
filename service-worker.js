@@ -2,7 +2,6 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox
  
 if (workbox) {
   workbox.precaching.precacheAndRoute([
-    { url: './', revision: '1' },
     { url: './index.html', revision: '1' },
     { url: './nav.html', revision: '1' },
     { url: './detail-team.html', revision: '1' },
