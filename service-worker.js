@@ -26,7 +26,9 @@ if (workbox) {
     { url: './img/banner-home.jpg', revision: '1' },
     { url: './img/soccer-512x512.png', revision: '1' },
     { url: './img/arrow-back.png', revision: '1' },
-  ]);
+  ], {
+    ignoreURLParametersMatching: [/.*/]
+  });
 
   workbox.routing.registerRoute(
     /\.(?:png|gif|jpg|jpeg)$/,
